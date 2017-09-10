@@ -1,0 +1,21 @@
+{
+  "name": "ddragon-api",
+  "version": "0.0.1",
+  "description": "DataDragon api to access data and resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -d"
+  },
+  "author": {
+    "name": "Luis A. Rubio",
+    "email": "luirting@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.2"
+  }
+}
