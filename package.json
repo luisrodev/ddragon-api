@@ -1,6 +1,6 @@
 {
   "name": "ddragon-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "DataDragon api to access data and resources",
   "main": "index.js",
   "scripts": {

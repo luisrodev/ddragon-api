@@ -3,7 +3,7 @@ import request = require('request');
 export const BASE_URL = 'https://ddragon.leagueoflegends.com/';
 
 //DATA
-export const data_url = `${BASE_URL}cdn/data/{language}/`;
+export const data_url = `${BASE_URL}cdn/{version}/data/{language}/`;
 
 //RESOURCES
 export const resources_url = `${BASE_URL}cdn/img/`;

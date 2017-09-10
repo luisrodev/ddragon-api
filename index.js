@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const request = require("request");
 exports.BASE_URL = 'https://ddragon.leagueoflegends.com/';
 //DATA
-exports.data_url = `${exports.BASE_URL}cdn/data/{language}/`;
+exports.data_url = `${exports.BASE_URL}cdn/{version}/data/{language}/`;
 //RESOURCES
 exports.resources_url = `${exports.BASE_URL}cdn/img/`;
 exports.resources_url_versioned = `${exports.BASE_URL}cdn/{version}/img/`;
