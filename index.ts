@@ -82,4 +82,10 @@ export class DDragonApi extends API {
         url += `champion.json`;
         return this.makeARequest(url, "get", null);
     }
+
+    public getSummoners(): Promise<DDragonApi> {
+        let url = this.parseURL_data(data_url);
+        url += `summoner.json`;
+        return this.makeARequest(url, "get", null);
+    }
 }

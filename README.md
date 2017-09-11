@@ -33,4 +33,6 @@ getChampions();
 getChampionById(id: string);
 
 getProfileIcons();
+
+getSummoners();
 ```
