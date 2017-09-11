@@ -18,19 +18,10 @@ class API {
             });
         });
     }
-    requestt(url, method, data, prop) {
+    makeARequest(url, method, data) {
         return new Promise((success, fail) => {
-            this.getJSON(url, method, data).then((d) => {
-                console.log("Fron request: ", d);
-                if (prop === null) {
-                    success();
-                }
-                else if (prop === undefined) {
-                    success(d);
-                }
-                else {
-                    success(d[prop]);
-                }
+            this.getJSON(url, method, data).then((res) => {
+                success(res);
             }).catch((err) => {
                 fail(err);
             });
@@ -45,17 +36,19 @@ class DDragonApi extends API {
         this.version = version;
     }
     parseURL_data(unparsed) {
-        console.log(this.version + ' ' + this.language);
         let parsedURL = unparsed.replace(`{version}`, this.version);
         parsedURL = parsedURL.replace(`{language}`, this.language);
-        console.log(parsedURL);
         return parsedURL;
     }
     getChampionDataById(id) {
         let url = this.parseURL_data(exports.data_url);
         url += `champion/${id}.json`;
-        console.log(url);
-        return this.requestt(url, "get", null);
+        return this.makeARequest(url, "get", null);
+    }
+    getProfileIcons() {
+        let url = this.parseURL_data(exports.data_url);
+        url += `profileicon.json`;
+        return this.makeARequest(url, "get", null);
     }
 }
 exports.DDragonApi = DDragonApi;

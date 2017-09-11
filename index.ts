@@ -14,7 +14,7 @@ export class API {
     public constructor(){}
     
 
-    public getJSON(url: string, method: string, data: any): Promise<any> {
+    private getJSON(url: string, method: string, data: any): Promise<any> {
         return new Promise((success, fail) => {
             request(url, (err: any, res: any, body: string) => {
                 if(err) fail({error: "Some error was appened"})
@@ -24,17 +24,10 @@ export class API {
         });
     }
 
-    public requestt(url: string, method: string, data: any, prop?: string): Promise<any> {
+    protected makeARequest(url: string, method: string, data: any): Promise<any> {
         return new Promise((success, fail) => {
-            this.getJSON(url, method, data).then((d) => {
-                console.log("Fron request: ", d);
-                if(prop === null){
-                    success();
-                } else if(prop === undefined){
-                    success(d);
-                }else{
-                    success(d[prop]);
-                }
+            this.getJSON(url, method, data).then((res) => {
+                success(res);
             }).catch((err) => {
                 fail(err);
             });
@@ -52,18 +45,21 @@ export class DDragonApi extends API {
         this.version = version;
     }
 
-    public parseURL_data(unparsed: string): string{
-        console.log(this.version + ' ' + this.language);
+    private parseURL_data(unparsed: string): string{
         let parsedURL = unparsed.replace(`{version}`, this.version);
         parsedURL = parsedURL.replace(`{language}`, this.language);
-        console.log(parsedURL);
         return parsedURL;
     }
 
     public getChampionDataById(id: string): Promise<DDragonApi>{
         let url = this.parseURL_data(data_url);
         url += `champion/${id}.json`;
-        console.log(url)
-        return this.requestt(url, "get", null);
+        return this.makeARequest(url, "get", null);
+    }
+
+    public getProfileIcons(): Promise<DDragonApi> { 
+        let url = this.parseURL_data(data_url);
+        url += `profileicon.json`;
+        return this.makeARequest(url, "get", null);
     }
 }
