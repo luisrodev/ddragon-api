@@ -11,6 +11,10 @@
     "name": "Luis A. Rubio",
     "email": "luirting@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luirting/ddragon-api"
+  },
   "license": "MIT",
   "dependencies": {
     "request": "^2.81.0"
