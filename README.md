@@ -25,3 +25,12 @@ ddragon.getChampionDataById(championId).then((championData) => {
     console.log(error);
 })
 ```
+## Data Request Methods
+
+```javascript
+getChampions();
+
+getChampionById(id: string);
+
+getProfileIcons();
+```

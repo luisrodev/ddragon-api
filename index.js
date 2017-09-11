@@ -29,7 +29,6 @@ class API {
                 else {
                     fail({ code: res.statusCode, message: RESPONSE_CODES[res.statusCode] });
                 }
-                // success(body);
             });
         });
     }
@@ -63,6 +62,11 @@ class DDragonApi extends API {
     getProfileIcons() {
         let url = this.parseURL_data(exports.data_url);
         url += `profileicon.json`;
+        return this.makeARequest(url, "get", null);
+    }
+    getChampionsData() {
+        let url = this.parseURL_data(exports.data_url);
+        url += `champion.json`;
         return this.makeARequest(url, "get", null);
     }
 }

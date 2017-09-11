@@ -34,8 +34,6 @@ export class API {
                 }else{
                     fail({ code: res.statusCode, message: RESPONSE_CODES[res.statusCode]});
                 }
-                
-                // success(body);
             });
         });
     }
@@ -67,7 +65,7 @@ export class DDragonApi extends API {
         return parsedURL;
     }
 
-    public getChampionDataById(id: string): Promise<DDragonApi>{
+    public getChampionById(id: string): Promise<DDragonApi>{
         let url = this.parseURL_data(data_url);
         url += `champion/${id}.json`;
         return this.makeARequest(url, "get", null);
@@ -76,6 +74,12 @@ export class DDragonApi extends API {
     public getProfileIcons(): Promise<DDragonApi> { 
         let url = this.parseURL_data(data_url);
         url += `profileicon.json`;
+        return this.makeARequest(url, "get", null);
+    }
+
+    public getChampions(): Promise<DDragonApi> {
+        let url = this.parseURL_data(data_url);
+        url += `champion.json`;
         return this.makeARequest(url, "get", null);
     }
 }
