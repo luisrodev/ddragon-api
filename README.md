@@ -1,6 +1,6 @@
 # ddragon-api
 
-This API will help us in the communication with the [datadragon tool.](http://ddragon.leagueoflegends.com/tool/).
+This API will help us in the communication with the [datadragon tool](http://ddragon.leagueoflegends.com/tool/).
 
 ## Install
 ```
@@ -19,7 +19,7 @@ const ddragon = new ddragonApi.DDragonApi(ddragon_language, ddragon_version);
 
 const championId = "Nidalee";
 
-ddragon.getChampionDataById(championId).then((championData) => {
+ddragon.getChampionById(championId).then((championData) => {
     console.log(champData);
 }).catch((error) => {
     console.log(error);
