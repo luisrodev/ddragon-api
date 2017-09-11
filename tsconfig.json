@@ -6,6 +6,9 @@
         "sourceMap": false,
         "noEmitOnError": true
     },
+    "files": [
+        "index.ts"
+    ],
     "exclude": [
         "node_modules"
     ]
