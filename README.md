@@ -36,3 +36,9 @@ getProfileIcons();
 
 getSummoners();
 ```
+
+## Resources Request Methods
+
+```javascript
+getChampionSquare(id: string);
+```
