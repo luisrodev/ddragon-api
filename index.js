@@ -7,6 +7,15 @@ exports.data_url = `${exports.BASE_URL}cdn/{version}/data/{language}/`;
 //RESOURCES
 exports.resources_url = `${exports.BASE_URL}cdn/img/`;
 exports.resources_url_versioned = `${exports.BASE_URL}cdn/{version}/img/`;
+const RESPONSE_CODES = {
+    400: "Bad Request",
+    403: "Forbidden",
+    404: "Not Found",
+    415: "Unsupported Media Type",
+    429: "Rate Limit Excceded",
+    500: "Internal Server Error",
+    503: "Service Unavaliable"
+};
 class API {
     constructor() { }
     getJSON(url, method, data) {
@@ -14,7 +23,13 @@ class API {
             request(url, (err, res, body) => {
                 if (err)
                     fail({ error: "Some error was appened" });
-                success(body);
+                if (res.statusCode == 200) {
+                    success(body);
+                }
+                else {
+                    fail({ code: res.statusCode, message: RESPONSE_CODES[res.statusCode] });
+                }
+                // success(body);
             });
         });
     }
