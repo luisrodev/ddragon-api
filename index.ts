@@ -65,6 +65,12 @@ export class DDragonApi extends API {
         return parsedURL;
     }
 
+    private parseURL_resources(unparsed: string){
+        let parsedURL = unparsed.replace(`{version}`, this.version);
+
+        return parsedURL;
+    }
+
     public getChampionById(id: string): Promise<DDragonApi>{
         let url = this.parseURL_data(data_url);
         url += `champion/${id}.json`;
@@ -82,4 +88,10 @@ export class DDragonApi extends API {
         url += `champion.json`;
         return this.makeARequest(url, "get", null);
     }
+
+    public getChampionSquare(id: string): Promise<DDragonApi> {
+        let url = this.parseURL_resources(resources_url_versioned);
+        url += `champion/${id}.png`;
+        return this.makeARequest(url, "get", null);
+    } 
 }

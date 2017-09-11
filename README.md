@@ -34,3 +34,9 @@ getChampionById(id: string);
 
 getProfileIcons();
 ```
+
+## Resources Request Methods
+
+```javascript
+getChampionSquare(id: string);
+```

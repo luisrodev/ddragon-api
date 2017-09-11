@@ -54,7 +54,11 @@ class DDragonApi extends API {
         parsedURL = parsedURL.replace(`{language}`, this.language);
         return parsedURL;
     }
-    getChampionDataById(id) {
+    parseURL_resources(unparsed) {
+        let parsedURL = unparsed.replace(`{version}`, this.version);
+        return parsedURL;
+    }
+    getChampionById(id) {
         let url = this.parseURL_data(exports.data_url);
         url += `champion/${id}.json`;
         return this.makeARequest(url, "get", null);
@@ -64,9 +68,14 @@ class DDragonApi extends API {
         url += `profileicon.json`;
         return this.makeARequest(url, "get", null);
     }
-    getChampionsData() {
+    getChampions() {
         let url = this.parseURL_data(exports.data_url);
         url += `champion.json`;
+        return this.makeARequest(url, "get", null);
+    }
+    getChampionSquare(id) {
+        let url = this.parseURL_resources(exports.resources_url_versioned);
+        url += `champion/${id}.png`;
         return this.makeARequest(url, "get", null);
     }
 }
