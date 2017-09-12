@@ -89,9 +89,34 @@ export class DDragonApi extends API {
         return this.makeARequest(url, "get", null);
     }
 
-    public getChampionSquare(id: string): Promise<DDragonApi> {
+    public getChampionSquare(id: string): String {
         let url = this.parseURL_resources(resources_url_versioned);
         url += `champion/${id}.png`;
-        return this.makeARequest(url, "get", null);
-    } 
+        return url;
+    }
+
+    public getProfileIcon(id: string): String {
+        let url = this.parseURL_resources(resources_url_versioned);
+        url += `profileicon/${id}.png`;
+        return url;
+    }
+
+    public getChampionSplashArt(championId: string, skinNum: number): String {
+        let url = this.parseURL_resources(resources_url);
+        url += `champion/splash/${championId}_${skinNum}.jpg`;
+        return url;
+    }
+
+    public getChampionLoadingImage(championId: string, skinNum: number): String {
+        let url = this.parseURL_resources(resources_url);
+        url += `champion/loading/${championId}_${skinNum}.jpg`;
+        return url;
+    }
+    
+    public getSpellImage(spellId: string): String {
+        let url = this.parseURL_resources(resources_url_versioned);
+        url += `spell/${spellId}.png`;
+        return url;
+    }
+    
 }
