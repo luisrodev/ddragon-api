@@ -81,7 +81,27 @@ class DDragonApi extends API {
     getChampionSquare(id) {
         let url = this.parseURL_resources(exports.resources_url_versioned);
         url += `champion/${id}.png`;
-        return this.makeARequest(url, "get", null);
+        return url;
+    }
+    getProfileIcon(id) {
+        let url = this.parseURL_resources(exports.resources_url_versioned);
+        url += `profileicon/${id}.png`;
+        return url;
+    }
+    getChampionSplashArt(championId, skinNum) {
+        let url = this.parseURL_resources(exports.resources_url);
+        url += `champion/splash/${championId}_${skinNum}.jpg`;
+        return url;
+    }
+    getChampionLoadingImage(championId, skinNum) {
+        let url = this.parseURL_resources(exports.resources_url);
+        url += `champion/loading/${championId}_${skinNum}.jpg`;
+        return url;
+    }
+    getSpellImage(spellId) {
+        let url = this.parseURL_resources(exports.resources_url_versioned);
+        url += `spell/${spellId}.png`;
+        return url;
     }
 }
 exports.DDragonApi = DDragonApi;

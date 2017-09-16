@@ -41,4 +41,12 @@ getSummoners();
 
 ```javascript
 getChampionSquare(id: string);
+
+getProfileIcon(id: string);
+
+getChampionSplashArt(championId: string, skinNum: nu,ber);
+
+getChampionLoadingImage(championId: string, skinNum: number);
+
+getSpellImage(spellId: string);
 ```
