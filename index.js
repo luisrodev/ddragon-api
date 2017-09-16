@@ -3,12 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const _consts_1 = require("./_consts");
 const api_1 = require("./api");
 class DDragonApi extends api_1.API {
-    // private language: string;
-    // private version: string;
     constructor(region) {
         super(region);
-        // this.language = language;
-        // this.version = version;
     }
     parseURL_data(unparsed) {
         let parsedURL = unparsed.replace(`{version}`, this.version);

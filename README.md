@@ -7,15 +7,24 @@ This API will help us in the communication with the [datadragon tool](http://ddr
 $ npm install ddragon-api --save
 ```
 
+## Test
+```
+// build command
+$ npm run build
+
+// test command
+$ npm run test
+```
+
 
 ## Usage
 ```javascript
 const ddragonApi = require('ddragon-api');
 
-const ddragon_language = "en_US"; //Language used on the data of responses.
-const ddragon_version = "7.17.2"; //Version of the data we will get.
+// region used to get data.
+const region = "na";
 
-const ddragon = new ddragonApi.DDragonApi(ddragon_language, ddragon_version);
+const ddragon = new ddragonApi.DDragonApi(region);
 
 const championId = "Nidalee";
 
