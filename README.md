@@ -53,7 +53,7 @@ getChampionSquare(id: string);
 
 getProfileIcon(id: string);
 
-getChampionSplashArt(championId: string, skinNum: nu,ber);
+getChampionSplashArt(championId: string, skinNum: number);
 
 getChampionLoadingImage(championId: string, skinNum: number);
 
