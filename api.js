@@ -8,6 +8,12 @@ class API extends _consts_1.Constants {
         this.region = region;
         this.getREALm();
     }
+    setLanguage(_language) {
+        this.language = _language;
+    }
+    setVersion(_version) {
+        this.version = _version;
+    }
     parseURLRealm() {
         let parsed = _consts_1.Constants.REALMS.replace(`{region}`, this.region);
         return parsed;

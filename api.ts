@@ -12,6 +12,14 @@ export class API extends Constants{
         this.getREALm();
     }
 
+    protected setLanguage(_language: string){
+        this.language = _language;
+    }
+
+    protected setVersion(_version: string){
+        this.version = _version;
+    }
+
     private parseURLRealm(){
         let parsed = Constants.REALMS.replace(`{region}`, this.region);
         return parsed;
