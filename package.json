@@ -1,6 +1,6 @@
 {
   "name": "ddragon-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Nodejs Library to get data from DataDragon.",
   "main": "index.js",
   "scripts": {

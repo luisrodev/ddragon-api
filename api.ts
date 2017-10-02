@@ -59,4 +59,17 @@ export class API extends Constants{
             });
         });
     }
+    protected makeAResourceRequest(url: string, method: string, data:any): Promise<any>{
+        return new Promise((succes, fail)=>{
+            this.getJSON(url, method, data).then((res) => {
+                let response = {
+                    "url": url,
+                    "code": res
+                }
+                succes(response);
+            }).catch((err) =>{
+                fail(err);
+            });
+        })
+    }
 }

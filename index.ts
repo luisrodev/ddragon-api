@@ -46,32 +46,36 @@ export class DDragonApi extends API {
     public getChampionSquare(id: string): Promise<DDragonApi> {
         let url = this.parseURL_resources(Constants.resources_url_versioned);
         url += `champion/${id}.png`;
-        return this.makeARequest(url, "get", null);
+        return this.makeAResourceRequest(url, "get", null);
         // return url;
     }
 
-    public getProfileIcon(id: string): String {
+    public getProfileIcon(id: string): Promise<DDragonApi> {
         let url = this.parseURL_resources(Constants.resources_url_versioned);
         url += `profileicon/${id}.png`;
-        return url;
+        // return url;
+        return this.makeAResourceRequest(url, "get", null);
     }
 
-    public getChampionSplashArt(championId: string, skinNum: number): String {
+    public getChampionSplashArt(championId: string, skinNum: number): Promise<DDragonApi> {
         let url = this.parseURL_resources(Constants.resources_url);
         url += `champion/splash/${championId}_${skinNum}.jpg`;
-        return url;
+        // return url;
+        return this.makeAResourceRequest(url, "get", null);
     }
 
-    public getChampionLoadingImage(championId: string, skinNum: number): String {
+    public getChampionLoadingImage(championId: string, skinNum: number): Promise<DDragonApi> {
         let url = this.parseURL_resources(Constants.resources_url);
         url += `champion/loading/${championId}_${skinNum}.jpg`;
-        return url;
+        // return url;
+        return this.makeAResourceRequest(url, "get", null);
     }
     
-    public getSpellImage(spellId: string): String {
+    public getSpellImage(spellId: string): Promise<DDragonApi> {
         let url = this.parseURL_resources(Constants.resources_url_versioned);
         url += `spell/${spellId}.png`;
-        return url;
+        // return url;
+        return this.makeAResourceRequest(url, "get", null);
     }
     
 }

@@ -51,5 +51,18 @@ class API extends _consts_1.Constants {
             });
         });
     }
+    makeAResourceRequest(url, method, data) {
+        return new Promise((succes, fail) => {
+            this.getJSON(url, method, data).then((res) => {
+                let response = {
+                    "url": url,
+                    "code": res
+                };
+                succes(response);
+            }).catch((err) => {
+                fail(err);
+            });
+        });
+    }
 }
 exports.API = API;

@@ -12,9 +12,14 @@ http.createServer((req, res) => {
     
     
 
-    ddragon.getChampionById("Elise").then((data) => {
-        console.log("DATA: ", data)
-    }).catch((err) => {
+    // ddragon.getChampionById("Elise").then((data) => {
+    //     console.log("DATA: ", data)
+    // }).catch((err) => {
+    //     console.log(err);
+    // })
+    ddragon.getChampionSquare("Rengar").then((data)=>{
+        console.log("data: ", data.url);
+    }).catch((err) =>{
         console.log(err);
     })
 

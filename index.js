@@ -39,28 +39,32 @@ class DDragonApi extends api_1.API {
     getChampionSquare(id) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url_versioned);
         url += `champion/${id}.png`;
-        return this.makeARequest(url, "get", null);
+        return this.makeAResourceRequest(url, "get", null);
         // return url;
     }
     getProfileIcon(id) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url_versioned);
         url += `profileicon/${id}.png`;
-        return url;
+        // return url;
+        return this.makeAResourceRequest(url, "get", null);
     }
     getChampionSplashArt(championId, skinNum) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url);
         url += `champion/splash/${championId}_${skinNum}.jpg`;
-        return url;
+        // return url;
+        return this.makeAResourceRequest(url, "get", null);
     }
     getChampionLoadingImage(championId, skinNum) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url);
         url += `champion/loading/${championId}_${skinNum}.jpg`;
-        return url;
+        // return url;
+        return this.makeAResourceRequest(url, "get", null);
     }
     getSpellImage(spellId) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url_versioned);
         url += `spell/${spellId}.png`;
-        return url;
+        // return url;
+        return this.makeAResourceRequest(url, "get", null);
     }
 }
 exports.DDragonApi = DDragonApi;
