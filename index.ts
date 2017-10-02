@@ -43,10 +43,11 @@ export class DDragonApi extends API {
         return this.makeARequest(url, "get", null);
     }
 
-    public getChampionSquare(id: string): String {
+    public getChampionSquare(id: string): Promise<DDragonApi> {
         let url = this.parseURL_resources(Constants.resources_url_versioned);
         url += `champion/${id}.png`;
-        return url;
+        return this.makeARequest(url, "get", null);
+        // return url;
     }
 
     public getProfileIcon(id: string): String {

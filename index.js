@@ -39,7 +39,8 @@ class DDragonApi extends api_1.API {
     getChampionSquare(id) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url_versioned);
         url += `champion/${id}.png`;
-        return url;
+        return this.makeARequest(url, "get", null);
+        // return url;
     }
     getProfileIcon(id) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url_versioned);
