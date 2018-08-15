@@ -5,6 +5,7 @@ const api_1 = require("./api");
 class DDragonApi extends api_1.API {
     constructor(region) {
         super(region);
+        this.fetch_object = true;
     }
     parseURL_data(unparsed) {
         let parsedURL = unparsed.replace(`{version}`, this.version);
@@ -14,6 +15,9 @@ class DDragonApi extends api_1.API {
     parseURL_resources(unparsed) {
         let parsedURL = unparsed.replace(`{version}`, this.version);
         return parsedURL;
+    }
+    returnResourseRequestAsUrl(fetch_url) {
+        this.fetch_object = fetch_url ? false : true;
     }
     getChampionById(id) {
         let url = this.parseURL_data(_consts_1.Constants.data_url);
@@ -39,32 +43,42 @@ class DDragonApi extends api_1.API {
     getChampionSquare(id) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url_versioned);
         url += `champion/${id}.png`;
-        return this.makeAResourceRequest(url, "get", null);
-        // return url;
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+        return url;
     }
     getProfileIcon(id) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url_versioned);
         url += `profileicon/${id}.png`;
-        // return url;
-        return this.makeAResourceRequest(url, "get", null);
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+        return url;
     }
     getChampionSplashArt(championId, skinNum) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url);
         url += `champion/splash/${championId}_${skinNum}.jpg`;
-        // return url;
-        return this.makeAResourceRequest(url, "get", null);
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+        return url;
     }
     getChampionLoadingImage(championId, skinNum) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url);
         url += `champion/loading/${championId}_${skinNum}.jpg`;
-        // return url;
-        return this.makeAResourceRequest(url, "get", null);
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+        return url;
     }
     getSpellImage(spellId) {
         let url = this.parseURL_resources(_consts_1.Constants.resources_url_versioned);
         url += `spell/${spellId}.png`;
-        // return url;
-        return this.makeAResourceRequest(url, "get", null);
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+        return url;
     }
 }
 exports.DDragonApi = DDragonApi;

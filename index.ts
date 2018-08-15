@@ -1,7 +1,8 @@
 import {Constants} from './_consts';
 import {API} from './api';
 
-export class DDragonApi extends API {    
+export class DDragonApi extends API {
+    private fetch_object = true;
 
     public constructor(region: string){
         super(region);
@@ -18,6 +19,10 @@ export class DDragonApi extends API {
         return parsedURL;
     }
 
+    public returnResourseRequestAsUrl(fetch_url:boolean){
+        this.fetch_object = fetch_url ? false : true;
+    }
+
     public getChampionById(id: string): Promise<DDragonApi>{
         let url = this.parseURL_data(Constants.data_url);
         url += `champion/${id}.json`;
@@ -25,7 +30,7 @@ export class DDragonApi extends API {
         return this.makeARequest(url, "get", null);
     }
 
-    public getProfileIcons(): Promise<DDragonApi> { 
+    public getProfileIcons(): Promise<DDragonApi> {
         let url = this.parseURL_data(Constants.data_url);
         url += `profileicon.json`;
         return this.makeARequest(url, "get", null);
@@ -43,39 +48,54 @@ export class DDragonApi extends API {
         return this.makeARequest(url, "get", null);
     }
 
-    public getChampionSquare(id: string): Promise<DDragonApi> {
+    public getChampionSquare(id: string): Promise<DDragonApi>|string {
         let url = this.parseURL_resources(Constants.resources_url_versioned);
         url += `champion/${id}.png`;
-        return this.makeAResourceRequest(url, "get", null);
-        // return url;
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+
+        return url;
     }
 
-    public getProfileIcon(id: string): Promise<DDragonApi> {
+    public getProfileIcon(id: string): Promise<DDragonApi>|string {
         let url = this.parseURL_resources(Constants.resources_url_versioned);
         url += `profileicon/${id}.png`;
-        // return url;
-        return this.makeAResourceRequest(url, "get", null);
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+
+        return url;
     }
 
-    public getChampionSplashArt(championId: string, skinNum: number): Promise<DDragonApi> {
+    public getChampionSplashArt(championId: string, skinNum: number): Promise<DDragonApi>|string {
         let url = this.parseURL_resources(Constants.resources_url);
         url += `champion/splash/${championId}_${skinNum}.jpg`;
-        // return url;
-        return this.makeAResourceRequest(url, "get", null);
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+
+        return url;
     }
 
-    public getChampionLoadingImage(championId: string, skinNum: number): Promise<DDragonApi> {
+    public getChampionLoadingImage(championId: string, skinNum: number): Promise<DDragonApi>|string {
         let url = this.parseURL_resources(Constants.resources_url);
         url += `champion/loading/${championId}_${skinNum}.jpg`;
-        // return url;
-        return this.makeAResourceRequest(url, "get", null);
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+
+        return url;
     }
-    
-    public getSpellImage(spellId: string): Promise<DDragonApi> {
+
+    public getSpellImage(spellId: string): Promise<DDragonApi>|string {
         let url = this.parseURL_resources(Constants.resources_url_versioned);
         url += `spell/${spellId}.png`;
-        // return url;
-        return this.makeAResourceRequest(url, "get", null);
+        if (this.fetch_object) {
+            return this.makeAResourceRequest(url, "get", null);
+        }
+
+        return url;
     }
-    
+
 }
