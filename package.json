@@ -1,11 +1,11 @@
 {
   "name": "ddragon-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Nodejs Library to get data from DataDragon.",
   "main": "index.js",
   "scripts": {
     "test": "node test/test.js",
-    "build": "tsc -d"
+    "build": "tsc"
   },
   "author": {
     "name": "Luis A. Rubio",

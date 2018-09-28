@@ -4,10 +4,19 @@
         "target": "es6",
         "noImplicitAny": false,
         "sourceMap": false,
-        "noEmitOnError": true
+        "removeComments": true,
+        "noEmitOnError": true,
+        "outDir": "dist/",
+        "declaration": false
     },
+    
     "files": [
-        "index.ts"
+        "src/index.ts",
+        "src/api.ts",
+        "_consts.ts"
+    ],
+    "include": [
+        "./"
     ],
     "exclude": [
         "node_modules"

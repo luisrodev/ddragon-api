@@ -2,9 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const BASE_URL = `https://ddragon.leagueoflegends.com/`;
 const REALMS = `${BASE_URL}realms/{region}.json`;
-//DATA
 const data_url = `${BASE_URL}cdn/{version}/data/{language}/`;
-//RESOURCES
 const resources_url = `${BASE_URL}cdn/img/`;
 const resources_url_versioned = `${BASE_URL}cdn/{version}/img/`;
 const RESPONSE_CODES = {
